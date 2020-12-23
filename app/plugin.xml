@@ -1,0 +1,46 @@
+<plugin>
+
+    <fix>
+        <source>com.example.performancehelper.MainActivity initEvent()</source>
+        <target>{boolean b = true;
+            if (b) {
+                    android.widget.Toast.makeText(this,"我被修复了！！！", android.widget.Toast.LENGTH_LONG).show();
+                }
+            }</target>
+    </fix>
+
+    <fix>
+        <source>com.lalamove.lib.MyClass test()</source>
+        <target>{boolean b = true;
+            if (b) {
+            System.out.println("111111");
+            }
+            }</target>
+    </fix>
+
+    <before>
+        <source>com.example.performancehelper.MainActivity onCreate()</source>
+        <target>com.example.performancehelper.BuryingPoint testBuryingPoint1()</target>
+    </before>
+
+    <before>
+        <source>com.example.performancehelper.MainActivity initData()</source>
+        <target>
+            com.example.performancehelper.BuryingPoint testBuryingPoint2($1)
+        </target>
+    </before>
+
+    <after>
+        <source>com.example.performancehelper.MainActivity insertClickPoint()</source>
+        <target>
+            android.widget.Toast.makeText(this,"我是被插入的Toast代码~!!",android.widget.Toast.LENGTH_SHORT).show()
+        </target>
+    </after>
+
+
+    <replace>
+        <source>com.lalamove.mylibrary2.ThirdActivity onClick()</source>
+        <target>com.example.performancehelper.BuryingPoint testBuryingPoint13()</target>
+    </replace>
+
+</plugin>

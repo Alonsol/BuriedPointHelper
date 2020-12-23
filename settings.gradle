@@ -1,0 +1,6 @@
+include ':lib'
+include ':mylibrary2'
+include ':mylibrary'
+include ':plugin'
+include ':app'
+rootProject.name = "PerformanceHelper"
